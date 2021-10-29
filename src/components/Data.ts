@@ -1,7 +1,7 @@
 import _skills from '../json/skills.json'
 import _attributes from '../json/attributes.json'
 import _states from '../json/states.json'
-import { DataDecorator, TextDecorator, Location } from './Utils'
+import { DataDecorator, TextDecorator } from './Utils'
 
 export const attributes = _attributes.slice(1);
 export const states = _states.slice(1).filter(v=>v.name && !v.name.startsWith('-') && !(v['@id']>=32 && v['@id']<=36));
