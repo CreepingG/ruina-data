@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed,ref,defineProps,onMounted,defineEmits } from 'vue'
-import { Datum } from './Data' 
+import { Datum } from '../Data' 
 const props = defineProps({
   hidden:Function,
   id:Number,
@@ -8,7 +8,7 @@ const props = defineProps({
 });
 const emit = defineEmits<{
     (event: 'select', id: number):void
-}>()
+}>();
 
 const data = props.data! as Datum[];
 const id = computed(()=>props.id!);
