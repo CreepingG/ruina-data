@@ -26,7 +26,7 @@ const filter = ref('');
   <el-container style="height:100%;width: 100%;">
     <el-tabs v-model="route" @tab-click="handleClick" style="width: 100%;">
       <el-tab-pane v-for="setting in list" :label="setting.text" :name="setting.route">
-        <component :visible="route === setting.route" :is="setting.component"></component>
+        <component :visible="route === setting.route" :is="setting.component" :filter="filter"></component>
       </el-tab-pane>
     </el-tabs>
     <el-input v-model="filter" placeholder="search" size="small"
