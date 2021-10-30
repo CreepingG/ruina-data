@@ -4,19 +4,19 @@ import SkillVue from './components/PageSkill.vue'
 import EnemyVue from './components/PageEnemy.vue';
 import { Location } from './Utils';
 const list = [
-  {text:'角色', route:'/actor', component: undefined},
-  {text:'技能', route:'/skill', component: SkillVue},
-  {text:'物品', route:'/item', component: undefined},
-  {text:'敌人', route:'/enemy', component: EnemyVue},
+  {text:'角色', route:'actor', component: undefined},
+  {text:'技能', route:'skill', component: SkillVue},
+  {text:'物品', route:'item', component: undefined},
+  {text:'敌人', route:'enemy', component: EnemyVue},
 ];
 function GetRoute(){
-  const path = window.location.pathname;
-  if (path === '/') return '/skill';
-  return path;
+  const page = Location.getSearch('page');
+  if (!page) return 'skill';
+  return page;
 }
 const route = ref(GetRoute());
 function handleClick(pane:any) {
-  Location.set({path:pane.paneName}, false);
+  Location.set({search:{page:pane.paneName}}, false);
 }
 onMounted(()=>window.addEventListener('popstate', ()=>{route.value = GetRoute();}));
 const filter = ref('');
