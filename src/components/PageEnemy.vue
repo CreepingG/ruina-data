@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref,computed,watch,defineProps,onMounted,onUnmounted } from 'vue'
+import { ref,computed,watch,onMounted,onUnmounted } from 'vue'
 import { Location } from '../Utils'
 import { enemies as data, items, max_id } from '../Data' 
 import text from '../Text'
