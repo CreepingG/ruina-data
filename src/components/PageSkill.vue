@@ -1,42 +1,40 @@
 <script setup lang="ts">
-import { ref,computed,watch,onMounted,onUnmounted } from 'vue'
-import { Location } from '../Utils'
+import { ref, Ref, computed, watch, inject } from 'vue'
+import { Location, LocParam } from '../Utils'
 import { skills as data, attributes, states } from '../Data'
 import text from '../Text'
 import MenuList from './ListMenu.vue';
 import AttrTag from './TagAttr.vue';
 import StateTag from './TagState.vue';
 const name = 'skill';
-const props = defineProps({
-  filter:String,
-  visible:Boolean
-});
-function SetLocation(){
-  Location.set({search:{id:id.value === 0 ? null : id.value.toString()}}, false);
-}
+const props = defineProps<{
+  filter: string,
+  visible: boolean,
+}>();
+const loc = inject<Ref<LocParam>>('loc')!;
 function GetId(){
-  const search = Location.getSearch('id');
-  const n = Number(search);
-  if (Number.isNaN(n)) return data[0]['@id'];
-  return n;
+  const search = Location.getSearch()['id'];
+  return Number(search) || 0;
 }
-const id = ref(0);
-watch(()=>props.visible, (v)=>{if(v) SetLocation()});
-function Select(i:number){
+const id = ref(props.visible ? GetId() : 0); // 初始id，首页从url获取，其他页为0
+function SetURL(){
+  Location.setSearch({page:name, id:id.value ? id.value.toString() : null}, false);
+}
+function Select(i:number){ // 页内切换
   id.value = i;
-  SetLocation();
+  SetURL();
 }
-const menuFocus:{value:HTMLSpanElement} = ref(null) as any;
-const listener = ()=>{if (props.visible) id.value = GetId();}
-onMounted(()=>{
-  if (props.visible) {
-    id.value = GetId();
-    menuFocus.value?.scrollIntoView({block:'center'});
+watch(loc, (loc)=>{ // 监听关于本页的广播，设置url
+  if (loc.page !== name) return;
+  const newId = Number(loc.id);
+  if (newId && data.has(newId)){
+    id.value = newId;
   }
-  window.addEventListener('popstate', listener);
+  else{
+    id.value = loc.force ? 0 : id.value;
+  }
+  if (!loc.force) SetURL();
 });
-onUnmounted(()=>window.removeEventListener('popstate', listener));
-onMounted(()=>menuFocus.value?.scrollIntoView({block:'center'}));
 const cur = computed(()=>data.get(id.value) || data[0]);
 
 function Hidden(id:number){
@@ -129,9 +127,4 @@ function TrueForThis(source:{'@id':any, 'name'?:any}[], oneHot:any):any[]{
 </template>
 
 <style scoped>
-.label {
-  margin: 0 1px;
-  width: 80px;
-  text-align: center;
-}
 </style>

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { defineProps, computed } from 'vue'
+import { computed } from 'vue'
 import { attributes } from '../Data'
-const props = defineProps({
-  id: Number
-});
-const attr = computed(()=>attributes.get(props.id || -1));
+const props = defineProps<{
+  id: number
+}>();
+const attr = computed(()=>attributes.get(props.id));
 </script>
 <template>
     <el-tag v-if="attr" class="tag">

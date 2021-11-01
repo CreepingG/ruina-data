@@ -34,10 +34,13 @@ const text = {
     gold: 'G',
 
     actor: '角色',
+    enemy: '敌人',
+    skill: '技能',
+    item: '物品',
     attribute: '属性',
     state: '状态',
 
-    ability: [''], // 占位
+    ability: '' as string&string[], // 占位
     hp: 'HP',
     mp: 'MP',
     attack: '攻击',

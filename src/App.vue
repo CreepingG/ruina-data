@@ -1,32 +1,41 @@
 <script setup lang="ts">
-import { ref,onMounted } from 'vue'
-import SkillVue from './components/PageSkill.vue'
-import EnemyVue from './components/PageEnemy.vue';
-import { Location } from './Utils';
+import { ref, shallowRef, readonly, provide, onMounted } from 'vue'
+import Skill from './components/PageSkill.vue'
+import Enemy from './components/PageEnemy.vue';
+import { Location, LocParam } from './Utils';
+import text from './Text';
 const list = [
-  {text:'角色', route:'actor', component: undefined},
-  {text:'技能', route:'skill', component: SkillVue},
-  {text:'物品', route:'item', component: undefined},
-  {text:'敌人', route:'enemy', component: EnemyVue},
+  //{text:text.actor, key:'actor', component: undefined},
+  {text:text.skill, key:'skill', component: Skill},
+  //{text:text.item, key:'item', component: undefined},
+  {text:text.enemy, key:'enemy', component: Enemy},
 ];
 function GetRoute(){
-  const page = Location.getSearch('page');
-  if (!page) return 'skill';
-  return page;
+  const search = Location.getSearch();
+  const loc:Record<string, string> = {};
+  Object.entries(search).forEach(kvp=>{
+    loc[kvp[0]] = kvp[1];
+  });
+  if (!loc['page']) loc['page'] = 'skill';
+  return loc as LocParam;
 }
-const route = ref(GetRoute());
-function handleClick(pane:any) {
-  Location.set({search:{page:pane.paneName}}, false);
+const loc = shallowRef(GetRoute());
+const goto = (newLoc:LocParam)=>{ // 广播事件
+  loc.value = newLoc;
 }
-onMounted(()=>window.addEventListener('popstate', ()=>{route.value = GetRoute();}));
+provide('loc', readonly(loc));
+provide('goto', goto);
+onMounted(()=>window.addEventListener('popstate', ()=>{ // 浏览器历史前进或后退
+  goto({...GetRoute(), force: true});
+}));
 const filter = ref('');
 </script>
 
 <template>
-  <el-container style="height:100%;width: 100%;">
-    <el-tabs v-model="route" @tab-click="handleClick" style="width: 100%;">
-      <el-tab-pane v-for="setting in list" :label="setting.text" :name="setting.route">
-        <component :visible="route === setting.route" :is="setting.component" :filter="filter"></component>
+  <el-container style="height: 100%;width: 100%;">
+    <el-tabs :model-value="loc.page" @update:model-value="goto({page:$event})" style="width: 100%;">
+      <el-tab-pane v-for="setting in list" :label="setting.text" :name="setting.key">
+        <component :visible="loc.page === setting.key" :is="setting.component" :filter="filter"></component>
       </el-tab-pane>
     </el-tabs>
     <el-input v-model="filter" placeholder="search" size="small"

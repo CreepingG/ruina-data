@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import { computed,ref,defineProps,onMounted,defineEmits } from 'vue'
+import { computed,ref,onMounted } from 'vue'
 import { Datum } from '../Data' 
-const props = defineProps({
-  hidden:Function,
-  id:Number,
-  data:Array
-});
+const props = defineProps<{
+  hidden:(id:number)=>boolean,
+  id: number,
+  data:Datum[],
+}>();
 const emit = defineEmits<{
     (event: 'select', id: number):void
 }>();
 
 const data = props.data! as Datum[];
-const id = computed(()=>props.id!);
+const id = computed(()=>props.id);
 
-const menuFocus:{value:HTMLSpanElement} = ref(null) as any;
+const menuFocus = ref<HTMLSpanElement|null>(null);
 onMounted(function(){
   menuFocus.value?.scrollIntoView({block:'center'});
 });
@@ -24,7 +24,7 @@ onMounted(function(){
     <el-aside width="180px" style="padding: 0;">
       <el-menu :default-active="id.toString()" >
         <el-menu-item v-for="item in data" :key="item['@id']" :index="item['@id'].toString()" 
-          :hidden="hidden!(item['@id'])"
+          :hidden="hidden(item['@id'])"
           @click="emit('select', item['@id'])" class="menu-item">
           <span v-if="item['@id'] === id" ref="menuFocus"></span>
           {{item.name}}
