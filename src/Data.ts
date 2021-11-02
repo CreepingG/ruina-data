@@ -18,7 +18,7 @@ const DataHandler:ProxyHandler<[any, any]> = {
 export function DataDecorator<T extends Datum>(raw:T[]){
   const default_data = raw[0];
   const rest = raw.slice(1);
-  return MapArray(rest.map(data => new Proxy([data, default_data], DataHandler) as any as T));
+  return MapArray(rest.map(data => new Proxy([data, default_data], DataHandler) as any as Readonly<T>));
 }
 const MapArrayHandler:ProxyHandler<[any, any]> = {
   get(target, prop:string){
@@ -37,21 +37,10 @@ function MapArray<T extends Datum>(raw:T[]){
   });
   return new Proxy([raw, map], MapArrayHandler) as any as T[]&Map<number,T>
 }
-export type Skill = {
-    [k in  "name" | "description" | "using_message1" | "using_message2"]:string|null;
-} & {
-    [k in  "@id" | "type" | "sp_cost" | "scope" | "physical_rate" | "magical_rate" | "variance" | "power" | "hit" | "switch_id"]:number;
-} & {
-    [k in  "affect_hp" | "affect_sp" | "affect_attack" | "affect_defense" | "affect_spirit" | "affect_agility" | "absorb_damage" | "ignore_defense" | "affect_attr_defence"]:boolean;
-} & {
-    [k in "state_effects" | "attribute_effects"]: boolean[]
-} & {
-    [k in string]: any
-}
+
 export const skills = DataDecorator(_skills);
 export const enemies = DataDecorator(_enemies);
 export const items = DataDecorator(_items);
-
 export const attributes = DataDecorator(_attributes);
 export const states = DataDecorator(_states);
 

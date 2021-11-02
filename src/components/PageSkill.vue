@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, Ref, computed, watch, inject } from 'vue'
 import { Location, LocParam } from '../Utils'
-import { skills as data, attributes, states } from '../Data'
+import { skills as data, attributes, states, Datum } from '../Data'
 import text from '../Text'
 import MenuList from './ListMenu.vue';
 import AttrTag from './TagAttr.vue';
@@ -37,19 +37,47 @@ watch(loc, (loc)=>{ // 监听关于本页的广播，设置url
 });
 const cur = computed(()=>data.get(id.value) || data[0]);
 
-function Hidden(id:number){
-  const filter = props.filter;
-  if (!filter) return false;
-  if (filter.match(/\d+/)){
-    if (id === Number(filter)) return false;
-  }
-  const skill = data.get(id);
-  if (!skill) return true;
-  return !['name', 'description', 'using_message1', 'using_message2'].some(key=>{
-    const value = (skill as any)[key];
-    return typeof value === 'string' && value.match(filter.replace('$', '\\$'));
-  });
+const advancedFilters:Record<string, (list:Datum[])=>Datum[]> = {
+  attack(list){
+    list = list.filter(v=>v.type===0 && v.physical_rate>0);
+    return list.sort((a,b)=>b.physical_rate-a.physical_rate);
+  },
+  magic(list){
+    list = list.filter(v=>v.type===0 && v.magical_rate>0);
+    return list.sort((a,b)=>b.magical_rate-a.magical_rate);
+  },
+  mixed(list){
+    list = list.filter(v=>v.type===0 && (v.physical_rate + v.magical_rate)>0);
+    return list.sort((a,b)=>(b.physical_rate + b.magical_rate)-(a.physical_rate + a.magical_rate));
+  },
 }
+const list = computed(()=>{
+  let result:Datum[] = data;
+  const filter = props.filter;
+  if (filter){
+    const match = filter.match(/^@(.*)@$/);
+    const action = match && advancedFilters[match[1]];
+    if (action){
+      result = action(result);
+    }
+    else{
+      const int = filter.match(/^\d+$/) ? Number(filter) : NaN;
+      result = result.filter(v=>{
+        if (v['@id']===int) return true;
+        return ['name', 'description', 'using_message1', 'using_message2'].some(key=>{
+          const value = v[key];
+          return typeof value === 'string' && value.match(filter);
+        });
+      });
+    }
+  }
+  return result.map(v=>{
+    return {
+      '@id': v['@id'],
+      name: v.name,
+    };
+  });
+});
 
 const column = 4;
 
@@ -78,7 +106,7 @@ function TrueForThis(source:{'@id':any, 'name'?:any}[], oneHot:any):any[]{
 </script>
 
 <template>
-  <MenuList :id="id" :data="data" :hidden="Hidden" @select="Select">
+  <MenuList :id="id" :data="list" @select="Select">
     <el-descriptions :title="(cur.name || '') + '@' + cur['@id']" :column="column" border>
       <el-descriptions-item :label="text.description" :span="column">
         {{cur.description || text.none}}

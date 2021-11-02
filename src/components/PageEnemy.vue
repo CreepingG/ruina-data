@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, Ref, computed, watch, inject } from 'vue'
 import { Location, LocParam } from '../Utils'
-import { enemies as data, items, max_id } from '../Data' 
+import { enemies as data, items, max_id, Datum } from '../Data' 
 import text from '../Text'
 import MenuList from './ListMenu.vue';
 import AttrTag from './TagAttr.vue';
@@ -37,19 +37,25 @@ watch(loc, (loc)=>{ // 监听关于本页的广播，设置url
 });
 const cur = computed(()=>data.get(id.value) || data[0]);
 
-function Hidden(id:number){
+const advancedFilters = {
+};
+const list = computed(()=>{
+  let result:Datum[] = data;
   const filter = props.filter;
-  if (!filter) return false;
-  if (filter.match(/\d+/)){
-    if (id === Number(filter)) return false;
+  if (filter){
+    const int = filter.match(/^\d+$/) ? Number(filter) : NaN;
+    result = result.filter(v=>{
+      if (v['@id']===int) return true;
+      return v.name?.match(filter.replace('$', '\\$'));
+    });
   }
-  const enemy:any = data.get(id);
-  if (!enemy) return true;
-  return !['name'].some(key=>{
-    const value = enemy[key];
-    return typeof value === 'string' && value.match(filter);
+  return result.map(v=>{
+    return {
+      '@id': v['@id'],
+      name: v.name,
+    };
   });
-}
+});
 
 const column = 4;
 
@@ -97,7 +103,7 @@ const stateRanks = computed(()=>Rank(cur.value.state_ranks, max_id.state));
 </script>
 
 <template>
-  <MenuList :id="id" :data="data" :hidden="Hidden" @select="Select">
+  <MenuList :id="id" :data="list" @select="Select">
     <el-descriptions :title="(cur.name || '') + '@' + cur['@id']" :column="column" border>
       <el-descriptions-item :label="text.ability" :span="column">
         {{[cur.max_hp, cur.max_sp, cur.attack, cur.defense, cur.spirit, cur.agility]
