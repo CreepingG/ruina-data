@@ -1,5 +1,5 @@
 {
-  "name": "ruina-data",
+  "name": "ruinata",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite --open",
