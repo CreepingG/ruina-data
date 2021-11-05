@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, Ref, shallowRef, readonly, computed ,provide, onMounted } from 'vue'
+import { ref, shallowRef, readonly, computed ,provide, onMounted } from 'vue'
 import Skill from './components/PageSkill.vue'
 import Enemy from './components/PageEnemy.vue';
 import { Location, LocParam } from './Utils';
