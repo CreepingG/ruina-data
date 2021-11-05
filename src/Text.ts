@@ -28,6 +28,7 @@ const text = {
     other: '其他',
     description: '描述',
     using_message: '使用文本',
+    message: '文本',
     effect: '效果',
     cost: '消耗',
     exp: 'E',
@@ -49,10 +50,22 @@ const text = {
     agility: '速度',
 
     variance: '数值分散度',
+    priority: '优先级',
     hit: '成功率',
+    rate: '发生率',
     drop: '掉落',
     crit: '暴击',
     miss: '易失误',
+    half: '减半',
+    double: '翻倍',
+    reduce_hit_ratio: '命中率降为@%',
+    restrict_skill: '无法使用@0加成大于@1%的技能',
+    state_value_change: '@0每回合@1@2',
+    related: '相关',
+    release: TextDecorator({
+      title: '自愈方式',
+      list: ['无法自愈','@0回合后有@1%的概率自愈', '受到攻击后有@%的概率自愈']
+    }),
     tag: TextDecorator({
       title: '标签',
       list: ['吸血','无视防御', '属性防御']
@@ -73,9 +86,21 @@ const text = {
       title: '使用场合',
       list: ['战斗外', '战斗中']
     }),
+    stateOccasion: TextDecorator({
+      title: '生效场合',
+      list: ['战斗中', '总是']
+    }),
     rank: TextDecorator({
       title: '有效度',
       list: ['A','B','C','D','E']
+    }),
+    rankColor: TextDecorator({
+      title: '有效度',
+      list: ['e24', 'c40', '060', '208', '808']
+    }),
+    restriction: TextDecorator({
+      title: '行动限制',
+      list: ['无', '无法行动', '强制攻击敌方', '强制攻击友方']
     }),
 };
 

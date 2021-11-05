@@ -42,7 +42,7 @@ export const skills = DataDecorator(_skills);
 export const enemies = DataDecorator(_enemies);
 export const items = DataDecorator(_items);
 export const attributes = DataDecorator(_attributes);
-export const states = DataDecorator(_states);
+export const states = DataDecorator(_states.map(v=>v.name?.match('；') ? {...v, name:v.name.replace('；','：')} : v));
 
 const GetMaxId = (list:any) => Math.max(...list.map((o:any)=>o['@id'] as number));
 export const max_id = {

@@ -2,6 +2,7 @@
 import { ref, shallowRef, readonly, computed ,provide, onMounted } from 'vue'
 import Skill from './components/PageSkill.vue'
 import Enemy from './components/PageEnemy.vue';
+import State from './components/PageState.vue';
 import { Location, LocParam } from './Utils';
 import text from './Text';
 const list = [
@@ -9,6 +10,7 @@ const list = [
   {text:text.skill, key:'skill', component: Skill},
   //{text:text.item, key:'item', component: undefined},
   {text:text.enemy, key:'enemy', component: Enemy},
+  {text:text.state, key:'state', component: State},
 ];
 function GetRoute(){
   const search = Location.getSearch();

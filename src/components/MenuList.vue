@@ -9,9 +9,8 @@ const emit = defineEmits<{
     (event: 'select', id: number):void
 }>();
 const menuFocus = ref<HTMLSpanElement|null>(null);
-onMounted(function(){
-  menuFocus.value?.scrollIntoView({block:'center'});
-});
+const scroll = ()=>menuFocus.value?.scrollIntoView({block:'center'});
+onMounted(scroll);
 </script>
 
 <template>

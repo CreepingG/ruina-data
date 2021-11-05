@@ -3,7 +3,7 @@ import { ref, Ref, computed, watch, inject } from 'vue'
 import { Location, LocParam } from '../Utils'
 import { enemies as data, items, max_id, Datum } from '../Data' 
 import text from '../Text'
-import MenuList from './ListMenu.vue';
+import MenuList from './MenuList.vue';
 import AttrTag from './TagAttr.vue';
 import StateTag from './TagState.vue';
 const name = 'enemy';
@@ -33,6 +33,7 @@ watch(loc, (loc)=>{ // 监听关于本页的广播，设置url
   else{
     id.value = loc.force ? 0 : id.value;
   }
+  setTimeout(()=>listMenu.value.$.setupState.scroll(), 0);
   if (!loc.force) SetURL();
 });
 const cur = computed(()=>data.get(id.value) || data[0]);
@@ -56,6 +57,7 @@ const list = computed(()=>{
     };
   });
 });
+const listMenu = ref(null as any);
 
 const column = 4;
 
@@ -103,7 +105,7 @@ const stateRanks = computed(()=>Rank(cur.value.state_ranks, max_id.state));
 </script>
 
 <template>
-  <MenuList :id="id" :data="list" @select="Select">
+  <MenuList :id="id" :data="list" @select="Select" ref="listMenu">
     <el-descriptions :title="(cur.name || '') + '@' + cur['@id']" :column="column" border>
       <el-descriptions-item :label="text.ability" :span="column">
         {{[cur.max_hp, cur.max_sp, cur.attack, cur.defense, cur.spirit, cur.agility]
