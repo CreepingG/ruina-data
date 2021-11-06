@@ -90,7 +90,7 @@ function Rank(ranks:number[]|undefined|null, max:number):({rank:string, type: 't
     if (g.length === 0) return;
     return {
       rank: text.rank[i],
-      ...(i === major[0] ? {
+      ...(i === major[0] && major[1]>max*0.7 ? {
         type: 'text',
         text: text.other
       } : {
