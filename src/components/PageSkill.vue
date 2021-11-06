@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, Ref, computed, watch, inject } from 'vue'
+import { ref, Ref, computed, watch, inject, defineExpose } from 'vue'
 import { Location, LocParam } from '../Utils'
 import { skills as data, attributes, states, Datum } from '../Data'
 import text from '../Text'
@@ -33,7 +33,7 @@ watch(loc, (loc)=>{ // 监听关于本页的广播，设置url
   else{
     id.value = loc.force ? 0 : id.value;
   }
-  setTimeout(()=>listMenu.value.$.setupState.scroll(), 0);
+  setTimeout(()=>menuList.value.scroll(), 0);
   if (!loc.force) SetURL();
 });
 const cur = computed(()=>data.get(id.value) || data[0]);
@@ -79,7 +79,7 @@ const list = computed(()=>{
     };
   });
 });
-const listMenu = ref(null as any);
+const menuList = ref(null as any);
 
 const column = 4;
 
@@ -105,10 +105,14 @@ function Any(list:any){
 function TrueForThis(source:{'@id':any, 'name'?:any}[], oneHot:any):any[]{
   return source.filter(v=>oneHot[(v['@id'] as number)-1]);
 }
+
+defineExpose({
+  advancedFilters,
+});
 </script>
 
 <template>
-  <MenuList :id="id" :data="list" @select="Select" ref="listMenu">
+  <MenuList :id="id" :data="list" @select="Select" ref="menuList">
     <el-descriptions :title="(cur.name || '') + '@' + cur['@id']" :column="column" border>
       <el-descriptions-item :label="text.description" :span="column">
         {{cur.description || text.none}}

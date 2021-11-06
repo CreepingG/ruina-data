@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, Ref, computed, watch, inject } from 'vue'
+import { ref, Ref, computed, watch, inject, defineExpose } from 'vue'
 import { Location, LocParam } from '../Utils'
 import { enemies as data, items, max_id, Datum } from '../Data' 
 import text from '../Text'
@@ -33,7 +33,7 @@ watch(loc, (loc)=>{ // 监听关于本页的广播，设置url
   else{
     id.value = loc.force ? 0 : id.value;
   }
-  setTimeout(()=>listMenu.value.$.setupState.scroll(), 0);
+  setTimeout(()=>menuList.value.scroll(), 0);
   if (!loc.force) SetURL();
 });
 const cur = computed(()=>data.get(id.value) || data[0]);
@@ -57,7 +57,7 @@ const list = computed(()=>{
     };
   });
 });
-const listMenu = ref(null as any);
+const menuList = ref(null as any);
 
 const column = 4;
 
@@ -102,10 +102,14 @@ function Rank(ranks:number[]|undefined|null, max:number):({rank:string, type: 't
 }
 const attrRanks = computed(()=>Rank(cur.value.attribute_ranks, max_id.attr));
 const stateRanks = computed(()=>Rank(cur.value.state_ranks, max_id.state));
+
+defineExpose({
+  advancedFilters,
+});
 </script>
 
 <template>
-  <MenuList :id="id" :data="list" @select="Select" ref="listMenu">
+  <MenuList :id="id" :data="list" @select="Select" ref="menuList">
     <el-descriptions :title="(cur.name || '') + '@' + cur['@id']" :column="column" border>
       <el-descriptions-item :label="text.ability" :span="column">
         {{[cur.max_hp, cur.max_sp, cur.attack, cur.defense, cur.spirit, cur.agility]

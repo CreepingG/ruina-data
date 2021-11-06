@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, shallowRef, readonly, computed ,provide, onMounted } from 'vue'
+import { ref, shallowRef, readonly, computed, provide, onMounted } from 'vue'
 import Skill from './components/PageSkill.vue'
 import Enemy from './components/PageEnemy.vue';
 import State from './components/PageState.vue';
@@ -39,7 +39,7 @@ const plainFilter = computed(()=>filter.value.replace(
 const specialFilter = (text:string, cb:(list:{value:string}[])=>void)=>{
   if (text===''||text==='@'){
     try{
-      const record = cur.value.$.setupState.advancedFilters;
+      const record = cur.value.advancedFilters;
       const keys = Object.keys(record);
       cb(keys.map(k=>({value:'@'+k+'@'})));
     }

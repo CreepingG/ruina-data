@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref, Ref, computed, watch, inject } from 'vue'
+import { ref, Ref, computed, watch, inject, defineExpose } from 'vue'
 import { Location, LocParam } from '../Utils'
-import { states as data, skills, enemies, Datum } from '../Data'
+import { states as data, skills, Datum } from '../Data'
 import text from '../Text'
 import MenuList from './MenuList.vue';
 const name = 'state';
@@ -31,7 +31,7 @@ watch(loc, (loc)=>{ // 监听关于本页的广播，设置url
   else{
     id.value = loc.force ? 0 : id.value;
   }
-  setTimeout(()=>listMenu.value.$.setupState.scroll(), 0);
+  setTimeout(()=>menuList.value.scroll(), 0);
   if (!loc.force) SetURL();
 });
 const cur = computed(()=>data.get(id.value) || data[0]);
@@ -65,7 +65,7 @@ const list = computed(()=>{
     };
   });
 });
-const listMenu = ref(null as any);
+const menuList = ref(null as any);
 
 const column = 4;
 
@@ -99,11 +99,15 @@ const effects = computed(()=>{
 });
 const relatedSkills = computed(()=>{
   return skills.filter(v=>v.state_effects && v.state_effects[id.value]).map(v=>v.name).join(text.sep);
-})
+});
+
+defineExpose({
+  advancedFilters,
+});
 </script>
 
 <template>
-  <MenuList :id="id" :data="list" @select="Select" ref="listMenu">
+  <MenuList :id="id" :data="list" @select="Select" ref="menuList">
     <el-descriptions :title="(cur.name || '') + '@' + cur['@id']" :column="column" border>
       <el-descriptions-item v-if="cur.message_actor" :label="text.message" :span="column">
         {{[cur.message_actor, cur.message_affected, cur.message_already, cur.message_recovery]

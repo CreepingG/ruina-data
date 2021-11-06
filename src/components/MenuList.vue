@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref,onMounted } from 'vue'
+import { ref,onMounted,defineExpose } from 'vue'
 import { Datum } from '../Data' 
 const props = defineProps<{
   id: number,
@@ -11,6 +11,9 @@ const emit = defineEmits<{
 const menuFocus = ref<HTMLSpanElement|null>(null);
 const scroll = ()=>menuFocus.value?.scrollIntoView({block:'center'});
 onMounted(scroll);
+defineExpose({
+  scroll
+});
 </script>
 
 <template>
