@@ -40,16 +40,18 @@ const cur = computed(()=>data.get(id.value) || data[0]);
 
 const advancedFilters:Record<string, (list:Datum[])=>Datum[]> = {
   attack(list){
-    list = list.filter(v=>v.type===0 && v.physical_rate>0);
-    return list.sort((a,b)=>b.physical_rate-a.physical_rate);
+    list = list.filter(v=>v.type===0 && v.scope<2 && v.affect_hp && v.physical_rate>0);
+    return list.sort((a,b)=>(b.physical_rate*25+b.power) - (a.physical_rate*25+a.power));
   },
   magic(list){
-    list = list.filter(v=>v.type===0 && v.magical_rate>0);
-    return list.sort((a,b)=>b.magical_rate-a.magical_rate);
+    list = list.filter(v=>v.type===0 && v.scope<2 && v.affect_hp && v.magical_rate>0);
+    return list.sort((a,b)=>(b.magical_rate*25+b.power) - (a.magical_rate*25+a.power));
   },
-  mixed(list){
-    list = list.filter(v=>v.type===0 && (v.physical_rate + v.magical_rate)>0);
-    return list.sort((a,b)=>(b.physical_rate + b.magical_rate)-(a.physical_rate + a.magical_rate));
+  mixed(list){ // 假设1000魔力500攻击
+    list = list.filter(v=>v.type===0 && v.scope<2 && v.affect_hp && (v.physical_rate + v.magical_rate)>0);
+    return list.sort((a,b)=>
+      (b.physical_rate*25 + b.magical_rate*25 + b.power)
+      - (a.physical_rate*25 + a.magical_rate*25 + a.power));
   },
 }
 const list = computed(()=>{
@@ -139,7 +141,7 @@ defineExpose({
         <el-descriptions-item :label="text.effect" :span="4"
           v-if="cur.affect_hp || cur.affect_sp || cur.affect_attack || cur.affect_defense || cur.affect_spirit || cur.affect_agility || cur.affect_attr_defence">
           {{[
-            ...(affects.length>0 ? [text.valueDirection[(cur.scope??0) >= 2 ? 0 : 1] + affects.join(text.sep), power, variance] : []), 
+            ...(affects.length>0 ? [text.valueDirection[cur.scope! >= 2 ? 0 : 1] + affects.join(text.sep), power, variance] : []), 
             ...tags
             ].filter(v=>v).join(' || ')}}
         </el-descriptions-item>
