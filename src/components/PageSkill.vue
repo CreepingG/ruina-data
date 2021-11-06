@@ -139,7 +139,7 @@ defineExpose({
         <el-descriptions-item :label="text.effect" :span="4"
           v-if="cur.affect_hp || cur.affect_sp || cur.affect_attack || cur.affect_defense || cur.affect_spirit || cur.affect_agility || cur.affect_attr_defence">
           {{[
-            ...(affects ? [text.valueDirection[(cur.scope??0) >= 2 ? 0 : 1] + affects.join(text.sep), power, variance] : []), 
+            ...(affects.length>0 ? [text.valueDirection[(cur.scope??0) >= 2 ? 0 : 1] + affects.join(text.sep), power, variance] : []), 
             ...tags
             ].filter(v=>v).join(' || ')}}
         </el-descriptions-item>

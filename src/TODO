@@ -1,6 +1,3 @@
 称号升级：地图事件 > 22クラスチェンジ > [0,1] > 1妉摼/2谕拶仾/34椡仾 > [3]
 属性/状态有效度：显示关联的技能和角色/敌人
-
-id必须由page管理，以保证page间切换时，能记忆各自不同的id
-goto应能向下发送新的id
-watch(loc)
+技能名前缀：http://yado.tk/2k/01_shoshin/010_seigyo_moji/#gaiji star-of-david

@@ -52,7 +52,8 @@ const text = {
     variance: '数值分散度',
     priority: '优先级',
     hit: '成功率',
-    rate: '发生率',
+    state_rate: '发生率',
+    attr_rate: '伤害倍率',
     drop: '掉落',
     crit: '暴击',
     miss: '易失误',
@@ -68,7 +69,7 @@ const text = {
     }),
     tag: TextDecorator({
       title: '标签',
-      list: ['吸血','无视防御', '属性防御']
+      list: ['吸血','无视防御', '属性有效度降低']
     }),
     valueDirection: TextDecorator({
       title: '方向',
@@ -81,6 +82,10 @@ const text = {
     scope: TextDecorator({
       title: '效果范围',
       list: ['敌方个体','敌方全体','使用者','我方个体','我方全体']
+    }),
+    scopeColor: TextDecorator({
+      title: '效果范围',
+      list: ['c60', 'b24', '0b0', '28b', '208']
     }),
     occasion: TextDecorator({
       title: '使用场合',
@@ -101,6 +106,10 @@ const text = {
     restriction: TextDecorator({
       title: '行动限制',
       list: ['无', '无法行动', '强制攻击敌方', '强制攻击友方']
+    }),
+    attr_type: TextDecorator({
+      title: '类型',
+      list: ['武器'/*技能施放受到所持武器的限制*/, '魔法'] /* 同类属性之间，倍率取最大；不同类属性之间，倍率相乘 */
     }),
 };
 

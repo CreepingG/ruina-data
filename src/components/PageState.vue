@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { ref, Ref, computed, watch, inject, defineExpose } from 'vue'
+import { ref, Ref, computed, watch, inject, defineExpose,h } from 'vue'
 import { Location, LocParam } from '../Utils'
 import { states as data, skills, Datum } from '../Data'
 import text from '../Text'
-import MenuList from './MenuList.vue';
+import TagSkill from './TagSkill.vue'
+import MenuList from './MenuList.vue'
 const name = 'state';
 const props = defineProps<{
   filter: string,
@@ -65,7 +66,7 @@ const list = computed(()=>{
     };
   });
 });
-const menuList = ref(null as any);
+const menuList = ref<any>();
 
 const column = 4;
 
@@ -98,7 +99,7 @@ const effects = computed(()=>{
   return result;
 });
 const relatedSkills = computed(()=>{
-  return skills.filter(v=>v.state_effects && v.state_effects[id.value]).map(v=>v.name).join(text.sep);
+  return skills.filter(v=>v.state_effects && v.state_effects[id.value - 1]).map(v=>h(TagSkill, {id:v['@id']}));
 });
 
 defineExpose({
@@ -126,7 +127,7 @@ defineExpose({
           cur.release_by_damage!>0 && text.release[2].replace('@', cur.release_by_damage!.toString())
           ].filter(v=>v).join(text.sep) || text.release[0]}}
       </el-descriptions-item>
-      <el-descriptions-item :label="text.rate" :span="column">
+      <el-descriptions-item :label="text.state_rate" :span="column">
         {{[cur.a_rate, cur.b_rate, cur.c_rate, cur.d_rate, cur.e_rate]
           .map((v,i)=>text.rank[i] + ':' + (v??0) + '%')
           .join(' || ')}}
@@ -135,7 +136,7 @@ defineExpose({
         {{effects.join(' || ')}}
       </el-descriptions-item>
       <el-descriptions-item :label="text.related + text.skill" :span="column">
-        {{relatedSkills || text.none}}
+        <render :vnodes="relatedSkills.length>0 ? relatedSkills : text.none" />
       </el-descriptions-item>
     </el-descriptions>
   </MenuList>

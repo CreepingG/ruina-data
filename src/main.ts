@@ -7,4 +7,10 @@ import { Search } from '@element-plus/icons'
 const app = createApp(App);
 app.use(ElementPlus);
 app.component('search', Search);
+app.component('render', {
+    render() {
+      return this.$props.vnodes;
+    },
+    props: ['vnodes'],
+});
 app.mount('#app');
