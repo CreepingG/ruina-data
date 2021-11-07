@@ -69,7 +69,7 @@ const text = {
     }),
     tag: TextDecorator({
       title: '标签',
-      list: ['吸血','无视防御', '属性有效度降低']
+      list: ['吸血','无视防御', '属性有效度提高']
     }),
     valueDirection: TextDecorator({
       title: '方向',

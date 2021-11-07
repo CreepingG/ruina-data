@@ -8,7 +8,7 @@ const props = defineProps<{
 const goto = inject<(newLoc:LocParam)=>void>('goto')!;
 const onclick = function(){
   goto({
-    page: 'attr',
+    page: 'attribute',
     id: props.id,
   });
 }
