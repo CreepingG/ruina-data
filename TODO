@@ -1,0 +1,12 @@
+称号升级：地图事件 > 22クラスチェンジ > [0,1] > 1妉摼/2谕拶仾/34椡仾 > [3]
+	Map0022 > Event id="0002" > EventPage id="0003" + EventPage id="0004"
+属性/状态有效度：显示关联的技能和角色/敌人
+技能名前缀：http://yado.tk/2k/01_shoshin/010_seigyo_moji/#gaiji star-of-david
+技能来源：角色自带/称号/技能书
+挖宝：鹤嘴锄021 钓鱼竿029
+敌人技能
+
+每个page以vnode形式生成各自的filter，以leftBar=[]形式expose
+menuList与description为平行组件，在不同布局中可更改其相对位置
+description、page分为不同的组件
+filter提供list给menu，menu提供id给description
