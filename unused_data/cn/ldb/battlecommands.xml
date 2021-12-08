@@ -1,0 +1,22 @@
+<?xml version="1.0" ?><Root>	<battlecommands>		
+   		<BattleCommands>			
+    			<placement>0</placement>			
+    			<death_handler_unused>F</death_handler_unused>			
+    			<row>0</row>			
+    			<battle_type>0</battle_type>			
+    			<unused_display_normal_parameters>T</unused_display_normal_parameters>			
+    			<commands/>			
+    			<death_handler>F</death_handler>			
+    			<death_event>1</death_event>			
+    			<window_size>0</window_size>			
+    			<transparency>0</transparency>			
+    			<death_teleport>F</death_teleport>			
+    			<death_teleport_id>1</death_teleport_id>			
+    			<death_teleport_x>0</death_teleport_x>			
+    			<death_teleport_y>0</death_teleport_y>			
+    			<death_teleport_face>0</death_teleport_face>			
+    			<easyrpg_default_atb_mode>0</easyrpg_default_atb_mode>			
+    			<easyrpg_enable_battle_row_command>T</easyrpg_enable_battle_row_command>			
+    			<easyrpg_sequential_order>F</easyrpg_sequential_order>			
+   		</BattleCommands>		
+  	</battlecommands></Root>

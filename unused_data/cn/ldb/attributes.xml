@@ -1,0 +1,542 @@
+<?xml version="1.0" ?><Root>	<attributes>		
+   		<Attribute id="0001">			
+    			<name>斩击</name>			
+    			<type>0</type>			
+    			<a_rate>200</a_rate>			
+    			<b_rate>150</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>60</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0002">			
+    			<name>刺突</name>			
+    			<type>0</type>			
+    			<a_rate>200</a_rate>			
+    			<b_rate>150</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>60</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0003">			
+    			<name>重打</name>			
+    			<type>0</type>			
+    			<a_rate>200</a_rate>			
+    			<b_rate>150</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0004">			
+    			<name>射击</name>			
+    			<type>0</type>			
+    			<a_rate>200</a_rate>			
+    			<b_rate>135</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>60</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0005">			
+    			<name>鞭</name>			
+    			<type>0</type>			
+    			<a_rate>200</a_rate>			
+    			<b_rate>150</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0006">			
+    			<name>暗杀</name>			
+    			<type>0</type>			
+    			<a_rate>200</a_rate>			
+    			<b_rate>135</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>60</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0007">			
+    			<name>长大</name>			
+    			<type>0</type>			
+    			<a_rate>150</a_rate>			
+    			<b_rate>125</b_rate>			
+    			<c_rate>50</c_rate>			
+    			<d_rate>25</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0008">			
+    			<name>格斗</name>			
+    			<type>0</type>			
+    			<a_rate>200</a_rate>			
+    			<b_rate>150</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0009">			
+    			<name>魔法</name>			
+    			<type>0</type>			
+    			<a_rate>200</a_rate>			
+    			<b_rate>150</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>70</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0010">			
+    			<name>魔物</name>			
+    			<type>0</type>			
+    			<a_rate>200</a_rate>			
+    			<b_rate>150</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>25</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0011">			
+    			<name/>			
+    			<type>0</type>			
+    			<a_rate>300</a_rate>			
+    			<b_rate>200</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0012">			
+    			<name>5%保证</name>			
+    			<type>0</type>			
+    			<a_rate>5</a_rate>			
+    			<b_rate>5</b_rate>			
+    			<c_rate>5</c_rate>			
+    			<d_rate>0</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0013">			
+    			<name>10%保证</name>			
+    			<type>0</type>			
+    			<a_rate>10</a_rate>			
+    			<b_rate>10</b_rate>			
+    			<c_rate>10</c_rate>			
+    			<d_rate>0</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0014">			
+    			<name>25%保证</name>			
+    			<type>0</type>			
+    			<a_rate>25</a_rate>			
+    			<b_rate>25</b_rate>			
+    			<c_rate>25</c_rate>			
+    			<d_rate>0</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0015">			
+    			<name>50%保证</name>			
+    			<type>0</type>			
+    			<a_rate>50</a_rate>			
+    			<b_rate>50</b_rate>			
+    			<c_rate>50</c_rate>			
+    			<d_rate>0</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0016">			
+    			<name>↑武↓魔</name>			
+    			<type>0</type>			
+    			<a_rate>300</a_rate>			
+    			<b_rate>200</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0017">			
+    			<name/>			
+    			<type>0</type>			
+    			<a_rate>300</a_rate>			
+    			<b_rate>200</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0018">			
+    			<name>远距离</name>			
+    			<type>1</type>			
+    			<a_rate>100</a_rate>			
+    			<b_rate>50</b_rate>			
+    			<c_rate>0</c_rate>			
+    			<d_rate>0</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0019">			
+    			<name>魔武ボツ</name>			
+    			<type>1</type>			
+    			<a_rate>100</a_rate>			
+    			<b_rate>100</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0020">			
+    			<name/>			
+    			<type>0</type>			
+    			<a_rate>300</a_rate>			
+    			<b_rate>200</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0021">			
+    			<name>火</name>			
+    			<type>1</type>			
+    			<a_rate>200</a_rate>			
+    			<b_rate>150</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0022">			
+    			<name>水</name>			
+    			<type>1</type>			
+    			<a_rate>200</a_rate>			
+    			<b_rate>150</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0023">			
+    			<name>雷</name>			
+    			<type>1</type>			
+    			<a_rate>200</a_rate>			
+    			<b_rate>150</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0024">			
+    			<name>圣</name>			
+    			<type>1</type>			
+    			<a_rate>200</a_rate>			
+    			<b_rate>150</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0025">			
+    			<name>暗</name>			
+    			<type>1</type>			
+    			<a_rate>200</a_rate>			
+    			<b_rate>150</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0026">			
+    			<name>对空</name>			
+    			<type>1</type>			
+    			<a_rate>200</a_rate>			
+    			<b_rate>150</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0027">			
+    			<name>对地</name>			
+    			<type>1</type>			
+    			<a_rate>200</a_rate>			
+    			<b_rate>150</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0028">			
+    			<name>HP回复</name>			
+    			<type>1</type>			
+    			<a_rate>200</a_rate>			
+    			<b_rate>150</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>1</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0029">			
+    			<name>强化</name>			
+    			<type>1</type>			
+    			<a_rate>200</a_rate>			
+    			<b_rate>150</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0030">			
+    			<name>虚弱</name>			
+    			<type>1</type>			
+    			<a_rate>200</a_rate>			
+    			<b_rate>150</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0031">			
+    			<name>吸收</name>			
+    			<type>1</type>			
+    			<a_rate>300</a_rate>			
+    			<b_rate>200</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0032">			
+    			<name>物理无属</name>			
+    			<type>1</type>			
+    			<a_rate>300</a_rate>			
+    			<b_rate>200</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0033">			
+    			<name>魔法无属</name>			
+    			<type>1</type>			
+    			<a_rate>300</a_rate>			
+    			<b_rate>200</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0034">			
+    			<name>人外魔属</name>			
+    			<type>1</type>			
+    			<a_rate>200</a_rate>			
+    			<b_rate>150</b_rate>			
+    			<c_rate>50</c_rate>			
+    			<d_rate>25</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0035">			
+    			<name/>			
+    			<type>0</type>			
+    			<a_rate>300</a_rate>			
+    			<b_rate>200</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0036">			
+    			<name>愚钝</name>			
+    			<type>1</type>			
+    			<a_rate>300</a_rate>			
+    			<b_rate>200</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0037">			
+    			<name>对龙</name>			
+    			<type>1</type>			
+    			<a_rate>200</a_rate>			
+    			<b_rate>150</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>60</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0038">			
+    			<name>对兽</name>			
+    			<type>1</type>			
+    			<a_rate>200</a_rate>			
+    			<b_rate>150</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>60</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0039">			
+    			<name>怕蜘蛛</name>			
+    			<type>1</type>			
+    			<a_rate>215</a_rate>			
+    			<b_rate>180</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>80</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0040">			
+    			<name>天意</name>			
+    			<type>1</type>			
+    			<a_rate>200</a_rate>			
+    			<b_rate>150</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0041">			
+    			<name/>			
+    			<type>0</type>			
+    			<a_rate>300</a_rate>			
+    			<b_rate>200</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0042">			
+    			<name>技0%</name>			
+    			<type>1</type>			
+    			<a_rate>50</a_rate>			
+    			<b_rate>25</b_rate>			
+    			<c_rate>0</c_rate>			
+    			<d_rate>0</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0043">			
+    			<name>技30%</name>			
+    			<type>1</type>			
+    			<a_rate>100</a_rate>			
+    			<b_rate>50</b_rate>			
+    			<c_rate>30</c_rate>			
+    			<d_rate>0</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0044">			
+    			<name>技50%</name>			
+    			<type>1</type>			
+    			<a_rate>300</a_rate>			
+    			<b_rate>200</b_rate>			
+    			<c_rate>50</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0045">			
+    			<name>技80%</name>			
+    			<type>1</type>			
+    			<a_rate>300</a_rate>			
+    			<b_rate>200</b_rate>			
+    			<c_rate>80</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0046">			
+    			<name/>			
+    			<type>0</type>			
+    			<a_rate>300</a_rate>			
+    			<b_rate>200</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0047">			
+    			<name>技120%</name>			
+    			<type>1</type>			
+    			<a_rate>300</a_rate>			
+    			<b_rate>200</b_rate>			
+    			<c_rate>120</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0048">			
+    			<name>技150%</name>			
+    			<type>1</type>			
+    			<a_rate>300</a_rate>			
+    			<b_rate>200</b_rate>			
+    			<c_rate>150</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0049">			
+    			<name>技180%</name>			
+    			<type>1</type>			
+    			<a_rate>300</a_rate>			
+    			<b_rate>200</b_rate>			
+    			<c_rate>180</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0050">			
+    			<name>技200%</name>			
+    			<type>1</type>			
+    			<a_rate>300</a_rate>			
+    			<b_rate>200</b_rate>			
+    			<c_rate>200</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0051">			
+    			<name>技300%</name>			
+    			<type>1</type>			
+    			<a_rate>300</a_rate>			
+    			<b_rate>300</b_rate>			
+    			<c_rate>300</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0052">			
+    			<name>技400%</name>			
+    			<type>1</type>			
+    			<a_rate>400</a_rate>			
+    			<b_rate>400</b_rate>			
+    			<c_rate>400</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0053">			
+    			<name>技500%</name>			
+    			<type>1</type>			
+    			<a_rate>500</a_rate>			
+    			<b_rate>500</b_rate>			
+    			<c_rate>500</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0054">			
+    			<name/>			
+    			<type>0</type>			
+    			<a_rate>300</a_rate>			
+    			<b_rate>200</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0055">			
+    			<name/>			
+    			<type>0</type>			
+    			<a_rate>300</a_rate>			
+    			<b_rate>200</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0056">			
+    			<name/>			
+    			<type>0</type>			
+    			<a_rate>300</a_rate>			
+    			<b_rate>200</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0057">			
+    			<name>MP回复技</name>			
+    			<type>1</type>			
+    			<a_rate>300</a_rate>			
+    			<b_rate>200</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0058">			
+    			<name/>			
+    			<type>0</type>			
+    			<a_rate>300</a_rate>			
+    			<b_rate>200</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0059">			
+    			<name>英雄剑技</name>			
+    			<type>1</type>			
+    			<a_rate>300</a_rate>			
+    			<b_rate>200</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>1</e_rate>			
+   		</Attribute>		
+   		<Attribute id="0060">			
+    			<name/>			
+    			<type>0</type>			
+    			<a_rate>300</a_rate>			
+    			<b_rate>200</b_rate>			
+    			<c_rate>100</c_rate>			
+    			<d_rate>50</d_rate>			
+    			<e_rate>0</e_rate>			
+   		</Attribute>		
+  	</attributes></Root>
