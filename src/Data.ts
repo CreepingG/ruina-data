@@ -1,8 +1,8 @@
-import _skills from './json/skills.json'
-import _enemies from './json/enemies.json'
-import _attributes from './json/attributes.json'
-import _states from './json/states.json'
-import _items from './json/items.json'
+import _skills from './assets/cn/skills.json'
+import _enemies from './assets/cn/enemies.json'
+import _attributes from './assets/cn/attributes.json'
+import _states from './assets/cn/states.json'
+import _items from './assets/cn/items.json'
 
 export type Datum = {
   "@id": number,
