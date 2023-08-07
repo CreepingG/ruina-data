@@ -38,10 +38,10 @@ jobs:
     - name: Install dependencies
       run: pnpm install
     - run: pnpm run build
-    - name: Check for symlinks in dist
+    - name: List build artifacts
       run: |
-        echo "Checking for symlinks in dist..."
-        find ./dist -type l
+        echo "Listing all files in ./dist:"
+        ls -lh ./dist
     - name: Upload build artifacts
       uses: actions/upload-artifact@v1
       with:
