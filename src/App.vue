@@ -14,7 +14,7 @@ type page = {
 const list = [
   {text:text.skill, key:'skill', component: Skill},
   {text:text.enemy, key:'enemy', component: Enemy},
-  {text:text.attribute, key:'attr', component: Attr},
+  {text:text.attribute, key:'attribute', component: Attr},
   {text:text.state, key:'state', component: State},
 ];
 function GetRoute(){
