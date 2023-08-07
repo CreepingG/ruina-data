@@ -48,11 +48,10 @@ jobs:
         echo "Listing all files in ./dist:"
         ls -lh ./dist
     - name: Upload build artifacts
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-pages-artifact@v2
       with:
-        name: github-pages
         path: ./dist
-      
+        name: github-pages
   deploy:
     needs: build
     environment:
