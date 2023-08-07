@@ -22,8 +22,10 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'pnpm'
-    - run: pnpm install
+    - uses: pnpm/action-setup@v2
+      name: Install pnpm
+      with:
+        version: 8
     - run: pnpm run build --if-present
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
